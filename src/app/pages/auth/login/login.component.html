@@ -1,0 +1,36 @@
+<div class="login" fxLayout="column" fxLayoutAlign="center center" style="position: relative;">
+    <img src="assets/images/logo.PNG" alt=""
+        style="height: 35px; padding: 5px; position: absolute;top: 0px; left: 0px;" />
+    <div fxLayout="column" fxLayoutAlign="center stretch" class="content-login">
+        <form [formGroup]="form" #frm="ngForm" (ngSubmit)="onSubmit()" autocomplete="off" fxLayout="column"
+            fxLayoutAlign="start stretch" fxLayoutGap="22px">
+            <div fxLayout="row" class="l-title">
+                Iniciar sesión
+            </div>
+            <div class="l-descript">
+                ¡Bienvenido!. Por favor ingresa tus datos:
+            </div>
+            <div fxLayout="column" fxLayoutAlign="start stretch">
+                <mat-form-field appearance="outline">
+                    <mat-label>Usuario</mat-label>
+                    <input matInput formControlName="username" required maxlength="50">
+                    <mat-error *ngIf="form.get('username')?.hasError('required')">Campo requerido.</mat-error>
+                    <mat-icon matSuffix>person_outline</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required
+                        maxlength="50">
+                    <mat-error *ngIf="form.get('password')?.hasError('required')">Campo requerido.</mat-error>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap="10px">
+                <button mat-flat-button color="primary" type="submit"> Ingresar</button>
+            </div>
+        </form>
+    </div>
+</div>

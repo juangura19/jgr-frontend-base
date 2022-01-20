@@ -1,0 +1,53 @@
+@import "~@angular/material/theming";
+// Plus imports for other components in your app.
+
+@include mat-core();
+
+$bv-brand: (
+    50: #fafafa,
+    100: #f5f5f5,
+    200: #eeeeee,
+    300: #212121,
+    400: #212121,
+    500: #212121,
+    600: #212121,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #fafafa,
+    A200: #f5f5f5,
+    A400: #212121,
+    A700: #000000,
+    contrast: (
+        50: $black-87-opacity,
+        100: $black-87-opacity,
+        200: $black-87-opacity,
+        300: $black-87-opacity,
+        400: $black-87-opacity,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: $black-87-opacity,
+        A200: $black-87-opacity,
+        A400: $black-87-opacity,
+        A700: white,
+    )
+);
+
+$theming-material-components-primary: mat-palette($bv-brand);
+$theming-material-components-accent: mat-palette($mat-pink, A200, A100, A400);
+$theming-material-components-warn: mat-palette($mat-red);
+
+$theming-material-components-theme: mat-light-theme(
+   (
+    color: (
+      primary: $theming-material-components-primary,
+      accent: $theming-material-components-accent,
+      warn: $theming-material-components-warn
+    ),
+  )
+);
+
+@include angular-material-theme($theming-material-components-theme);
