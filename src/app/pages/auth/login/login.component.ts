@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,10 +12,10 @@ export class LoginComponent implements OnInit {
   @ViewChild(FormGroupDirective) formDirective!: FormGroupDirective;
 
   hide = true;
-  form = new FormGroup({
-    'username': new FormControl('', [
+  form = new UntypedFormGroup({
+    'username': new UntypedFormControl('', [
       Validators.required]),
-    'password': new FormControl('')
+    'password': new UntypedFormControl('')
   })
 
 
